@@ -1,5 +1,5 @@
 #
-# @(!--#) @(#) psend.py, version 003, 10-january-2021
+# @(!--#) @(#) psend.py, sversion 0.1.0, fversion 004, 12-january-2021
 #
 # construct a network packet and send it to a host
 #
@@ -8,7 +8,7 @@
 # Links:
 # -----
 #
-#    blah blah
+#    
 #
 # Feature list:
 # ------------
@@ -257,7 +257,8 @@ def main():
     
     parser = argparse.ArgumentParser()
         
-    parser.add_argument('--file',
+    parser.add_argument('-f',
+                        '--file',
                         help='name of psend file (default is "{}")'.format(DEFAULT_PSEND_FILE),
                         default=DEFAULT_PSEND_FILE)
 
