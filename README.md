@@ -8,7 +8,7 @@ The `psend.py` Python program reads a file (by default `psend.txt`) and builds a
 and then sends it to a network host on a specified port. It can optionally wait for a response
 packet and display the bytes in the response packet.
 
-For example if the `psend.txt` file contains:
+For example create a `psend.txt` file with the following content:
 
 ```
 host 10.1.1.13
@@ -19,13 +19,16 @@ send
 receive
 ```
 
-then running:
+Change the IPx4 address `10.1.1.13` to the IP address of a TFTP server
+on your network.
+
+Now run:
 
 ```
 python psend.txt
 ```
 
-could product output similar to:
+You might well get output similar to:
 
 ```
 > 0000 : 00 01 66 69 6C 65 00 6F 63 74 65 74 00             ??file?octet?
@@ -61,3 +64,25 @@ You will need:
 + UNIX/Linux or Windows
 + Python 3 (tested on version 3.7.2)
 
+## Command line option `-f` / `--file`
+
+The optional command line option `--file` (short form `-f`) can be used to specify a
+different packet specification file. For example if the packet specification is in a file called
+`px2firmware.txt` then run the `psend.py` program as follows:
+
+```
+python psend.py --file px2firmware.txt
+```
+
+or with the short form:
+
+```
+python psend.py -f px2firmware.txt
+```
+
+
+
+
+----------------------------------------------------------------
+
+End of README.md - sversion 0.1.0, fversion 002, 12-january-2021
