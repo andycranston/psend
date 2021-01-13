@@ -326,7 +326,7 @@ which would be 10 lots of the following hexadecimal byte values:
 
 By default when data values are added to the packet they are added to the end of the packet.
 Sometimes it makes more sense to build the packet "back to front". By using the `prepend` command
-all subsequent data lines are add to the front of the packet. Here is an example:
+all subsequent data lines are added to the front of the packet. Here is an example:
 
 ```
 prepend
@@ -354,7 +354,7 @@ The `prepend` command does not require any arguments.
 
 ## Command `append`
 
-The `append` command does not require any arguments. It cause data in data lines to be add to the end
+The `append` command does not require any arguments. It cause data in data lines to be added to the end
 of the packet. This is the default action so the `append` command is sometime seen after a `prepend`
 command in a packet definition file. An example:
 
