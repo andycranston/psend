@@ -1,5 +1,5 @@
 #
-# @(!--#) @(#) psend.py, sversion 0.1.0, fversion 004, 12-january-2021
+# @(!--#) @(#) psend.py, sversion 0.1.0, fversion 005, 13-january-2021
 #
 # construct a network packet and send it to a host
 #
@@ -38,9 +38,11 @@ import select
 # globals
 #
 
-DEFAULT_PSEND_FILE        = 'psend.txt'
-COMMENT_CHAR              = '#'
-MAX_PACKET_SIZE           = 1024000
+DEFAULT_PSEND_FILE = 'psend.txt'
+
+COMMENT_CHAR = '#'
+
+MAX_PACKET_SIZE = 1024000
 
 ##############################################################################
 
@@ -204,11 +206,11 @@ def processpsendfile(file):
         if cmd in aliases:
             cmd = aliases[cmd]
         
-        if cmd in [ 'exit', 'quit', 'stop' ]:
+        if cmd == 'exit':
             break
         
         if cmd == 'alias':
-            aliases[words[2]] = words[1]
+            aliases[words[1]] = words[2]
         elif cmd == 'aliases':
             if len(aliases) == 0:
                 print('<none>')
@@ -234,9 +236,9 @@ def processpsendfile(file):
             time.sleep(float(words[1]))                
         elif cmd == 'show':
             showpacket(packet, '>')
-        elif cmd in [ 'send', 's', 'put' ]:
+        elif cmd == 'send':
             sock.sendto(packet, (host, port))
-        elif cmd in [ 'receive', 'recieve', 'r', 'get' ]:
+        elif cmd == 'receive':
             ready, dummy1, dummy2 = select.select([sock], [], [], timeout)    
             if len(ready) == 0:
                 print('{}: timeout on receive packet - waited {} seconds'.format(progname, timeout), file=sys.stderr)
