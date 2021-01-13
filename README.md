@@ -32,7 +32,7 @@ on your network.
 Now run:
 
 ```
-python psend.txt
+python psend.py
 ```
 
 You might well get output similar to:
@@ -97,7 +97,7 @@ The `psend.txt` packet specification file (or the file specified after the `--fi
 line option) contains lines which fall into one of the following type:
 
 + A line that begins with the '#' character
-+ Blank lines (or lines containing just spaces and or tab characters)
++ Blank lines (or lines containing just spaces and/or tab characters)
 + Command lines
 + Data lines
 
@@ -181,7 +181,7 @@ psend.py: timeout on receive packet - waited 2.0 seconds
 
 will be displayed.
 
-If a packet is received the bytes in the packet will be displayed. Ax example
+If a packet is received the bytes in the packet will be displayed. An example
 output from the `receive` command might look like:
 
 ```
@@ -192,13 +192,13 @@ output from the `receive` command might look like:
 ## Data lines
 
 Data lines contain text representations of the byte data that is to be added to a
-packet. Each data line can have one or more test representation on it.
+packet. Each data line can have one or more text representations on it.
 One packet specification file can contain multiple data lines.
 
 The order that data lines appear in the packet specification file matters as does the order
 of each text representation on a particular data line.
 
-The simplest text representation is a positive interger number in the range 0 to 255 inclusive. This number
+The simplest text representation is a positive integer number in the range 0 to 255 inclusive. This number
 represents a single byte to be added to the packet. For example:
 
 ```
@@ -250,6 +250,8 @@ string "My Name" then this would be one way:
 'My' 32 'Name'
 ```
 
+as the decimal value 32 is the ASCII code byte value of a space character.
+
 ## Additional commands
 
 As well as the basic commands:
@@ -259,14 +261,13 @@ As well as the basic commands:
 + `show`
 + `send`
 + `receive`
-```
 
-there are additional command which are now documented.
+there are additional commands which are now documented.
 
 ## Command `timeout`
 
 The `timeout` command requires one argument which is a positive floating point number
-which sets how long the `recieve` command is to wait for a response. By default the
+which sets how long the `receive` command is to wait for a response. By default the
 timeout is 2.0 seconds. In some cases you may want a different timeout value. For example:
 
 ```
